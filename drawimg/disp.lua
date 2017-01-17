@@ -24,33 +24,4 @@ function rajz(kep)
     until disp:nextPage() == false
 end;
 
-function pislant(kepsuffix)
-    rajz(kepsuffix.."_p.bm")
-    tmr.create():alarm(1, tmr.ALARM_SINGLE, function()
-        rajz(kepsuffix..".bm")
-    end)
-end
-
-rajz("kep1.bm")
-tmr.create():alarm(3000, tmr.ALARM_SINGLE, function()
-    pislant("kep1")
-    tmr.create():alarm(500, tmr.ALARM_SINGLE, function()
-        pislant("kep1")
-    end)
-    tmr.create():alarm(3000, tmr.ALARM_SINGLE, function()
-        rajz("kep2.bm")
-        tmr.create():alarm(3000, tmr.ALARM_SINGLE, function()
-            rajz("kep3.bm")
-            tmr.create():alarm(math.random(2000, 10000), tmr.ALARM_AUTO, function()
-                pislant("kep3")
-                if (math.random(10) < 3) then
-                    tmr.create():alarm(500, tmr.ALARM_SINGLE, function()
-                        pislant("kep3")
-                    end)
-                end
-            end)
-        end)
-    end)
-end)
-
-
+rajz("kep.bm")
