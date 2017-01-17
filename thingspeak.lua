@@ -1,7 +1,7 @@
 local WRITE_KEY = "__WRITEKEY__"
 
-return function sendToThingSpeak(data)
-    print("Sending: "..data);
+return function(data, data2)
+    print("Sending: " .. data .. " and " .. data2);
     
     local connout = nil
     connout = net.createConnection(net.TCP, 0)
@@ -14,7 +14,7 @@ return function sendToThingSpeak(data)
  
     connout:on("connection", function(connout, payloadout)
  
-        connout:send("GET /update?api_key="..WRITE_KEY.."&field1=" .. data
+        connout:send("GET /update?api_key="..WRITE_KEY.."&field1=" .. data .. "&field2=" .. data2
         .. " HTTP/1.1\r\n"
         .. "Host: api.thingspeak.com\r\n"
         .. "Connection: close\r\n"
