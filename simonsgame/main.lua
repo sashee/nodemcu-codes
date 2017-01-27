@@ -18,7 +18,11 @@ return function()
                     end)
                 else
                     tmr.create():alarm(1000, tmr.ALARM_SINGLE, function()
-                        melody({2,3,2,1,0,0,0,0})
+                        melody({2,3,2,1,0,0,0,0}, function()
+                            tmr.create():alarm(1000, tmr.ALARM_SINGLE, function()
+                                nextLevel({})
+                            end)
+                        end)
                     end)
                 end
             end)
