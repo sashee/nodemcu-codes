@@ -1,7 +1,7 @@
 local inputs = {7,4,12,6}
 for i,inputio in ipairs(inputs)
 do
-    gpio.mode(inputio, gpio.INT)
+    gpio.mode(inputio, gpio.INT, gpio.PULLUP)
 end
 
 return function(callback)
