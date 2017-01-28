@@ -6,4 +6,5 @@
 
 Notes:
 
-* GPIO 4 needs a 50K resistor between VCC to startup.
+* All inputs are only connected to the GND (they are pulled up internally)
+* The second input must be float to start (yep, it's a bug)
